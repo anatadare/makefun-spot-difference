@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twin Views — Spot the Difference</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <h1>Twin Views</h1>
+      <p>Spot the difference</p>
+    </div>
+    <div class="round-info">
+      <div id="round-count" class="round-count">Round 1 of 3</div>
+      <div id="round-name" class="round-name">Seaside Cottage</div>
+    </div>
+    <div class="score-box">
+      <span class="label">Score</span>
+      <span id="score-value" class="value">0</span>
+    </div>
+    <div id="time-wrap" class="time-box">
+      <span class="label">Time</span>
+      <span id="time-value" class="value">2:30</span>
+    </div>
+  </header>
+
+  <div class="time-track"><div id="time-bar-fill" class="time-fill"></div></div>
+
+  <section class="panels">
+    <figure class="panel">
+      <figcaption><span class="tag">A</span> Original</figcaption>
+      <canvas id="panel-left" width="560" height="400"></canvas>
+    </figure>
+    <figure class="panel">
+      <figcaption><span class="tag">B</span> Changed</figcaption>
+      <canvas id="panel-right" width="560" height="400"></canvas>
+    </figure>
+  </section>
+
+  <section class="hud">
+    <div class="found">
+      <span id="found-text">Found 0 of 7 · 7 left</span>
+      <span id="found-dots" class="dots"></span>
+    </div>
+    <p id="message-line" class="message">Find every difference between the two pictures.</p>
+    <div class="actions">
+      <button id="hint-btn" type="button">Hint (<span id="hints-value">3</span>)</button>
+      <button id="restart-btn" type="button">Restart round</button>
+      <button id="mute-btn" type="button">Sound on</button>
+    </div>
+  </section>
+
+  <footer class="help">Click a difference on either picture to mark it. Wrong clicks cost 5 seconds. Keys: H hint · R restart · M sound · Enter start.</footer>
+
+  <div id="overlay-title" class="overlay">
+    <div class="card">
+      <h2>Twin Views</h2>
+      <p class="tagline">Two pictures. A handful of differences. One sharp eye.</p>
+      <ul>
+        <li>Three hand-drawn scenes, 7, 8 and 9 differences to find.</li>
+        <li>Click a difference on either picture. Each find is worth 100 points.</li>
+        <li>Wrong clicks cost 5 seconds. Beat the clock for a time bonus.</li>
+        <li>Stuck? Spend a hint to light up one hiding difference.</li>
+      </ul>
+      <button id="start-btn" type="button" class="primary">Start hunting</button>
+    </div>
+  </div>
+
+  <div id="overlay-round" class="overlay hidden">
+    <div class="card">
+      <h2 id="round-clear-title">Round complete!</h2>
+      <p id="round-clear-detail"></p>
+      <button id="next-btn" type="button" class="primary">Next round</button>
+    </div>
+  </div>
+
+  <div id="overlay-win" class="overlay hidden">
+    <div class="card">
+      <h2>You found them all!</h2>
+      <p class="big" id="win-total">0 points</p>
+      <p id="win-detail"></p>
+      <button id="play-again-btn" type="button" class="primary">Play again</button>
+    </div>
+  </div>
+
+  <div id="overlay-timeup" class="overlay hidden">
+    <div class="card">
+      <h2>Time's up!</h2>
+      <p id="timeup-detail"></p>
+      <button id="retry-btn" type="button" class="primary">Retry this round</button>
+      <button id="restart-all-btn" type="button">Start over</button>
+    </div>
+  </div>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
